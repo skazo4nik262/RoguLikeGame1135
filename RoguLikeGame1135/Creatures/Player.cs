@@ -10,8 +10,6 @@ namespace RoguLikeGame1135.Creatures
 
         public Player()
         {
-            Console.WriteLine("Введите имя персонажа");
-            Stats.Name = Console.ReadLine();
             Console.WriteLine($"Выберите класс:\n 1) Mage: \tMax HP: {mage.MaxHP}\n, \tArmor: {mage.Armor}\n, \tDamage: {mage.Damage}\n2) Warrior: \tMax HP: {warrior.MaxHP}\n, \tArmor: {warrior.Armor}\n, \tDamage: {warrior.Damage}");
             var a = Console.ReadLine();
 
@@ -28,6 +26,8 @@ namespace RoguLikeGame1135.Creatures
                     break;
 
             }
+            Console.WriteLine("Введите имя персонажа");
+            Stats.Name = Console.ReadLine();
         }
 
         public override void RunAction(Room room)
@@ -55,9 +55,10 @@ namespace RoguLikeGame1135.Creatures
         Random rnd = new Random();
         public Enemy()
         {
-            Stats.Name = "Говилка";
+
             if (rnd.Next(2) == 0) Stats = new Mage();
             else Stats = new Warrior();
+            Stats.Name = "Говилка";
 
         }
         public override void RunAction(Room room)

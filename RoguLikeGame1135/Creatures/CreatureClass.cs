@@ -11,7 +11,7 @@ namespace RoguLikeGame1135.Creatures
         public int MaxHP { get; set; }
         public int Speed { get; set; }
 
-        public List<CreatureAction> Actions { get; set; }
+        public List<CreatureAction> Actions { get; set; } = new();
 
         public void PrintActions()
         {
