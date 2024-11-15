@@ -25,8 +25,8 @@ namespace RoguLikeGame1135
                     creature.RandomSpeed();
                 creatures.AddRange(Enemies);
                 creatures.Add(Player);
-                creatures.Sort();
-                foreach (var creature in creatures)
+                var order = creatures.OrderByDescending(s=>s.Stats.Speed);
+                foreach (var creature in order)
                     creature.RunAction(this);
             }
             if (Player.IsDead == false)
