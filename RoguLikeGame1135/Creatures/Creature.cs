@@ -1,8 +1,15 @@
-﻿namespace RoguLikeGame1135.Creatures
+﻿using RoguLikeGame1135.Enemies;
+using System.Drawing;
+
+namespace RoguLikeGame1135.Creatures
 {
     public abstract class Creature
     {
         public CreatureClass Stats { get; set; }
+
+        
+
+        public ConsoleColor Color { get; set; } = ConsoleColor.White;
 
         public bool IsDead { get; set; } = false;
 

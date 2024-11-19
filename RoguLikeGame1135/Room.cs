@@ -1,4 +1,5 @@
 ﻿using RoguLikeGame1135.Creatures;
+using RoguLikeGame1135.Enemies;
 
 namespace RoguLikeGame1135
 {
@@ -8,10 +9,16 @@ namespace RoguLikeGame1135
 
         public List<Creature> Enemies { get; set; }
 
-        public Room(Creature player)
+        public Room(Creature player, List<Enemy> allEnemies)
         {
             Player = player;
-            Enemies = new List<Creature>() { new Enemy(), new Enemy(), new Enemy() };
+            Enemies = new List<Creature>();
+            for (int i = 0; i < new Random().Next(5); i++)
+            {
+                Enemies.Add(allEnemies[new Random().Next(7)]);
+            }
+            Console.WriteLine("Вы попали в комнату, вас окружают враги:\n");
+            foreach (Enemy enemy in allEnemies) Console.WriteLine($"{enemy.Stats.Name}\n");
         }
         public void RunBattle()
         {

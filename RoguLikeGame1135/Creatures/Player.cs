@@ -10,6 +10,7 @@ namespace RoguLikeGame1135.Creatures
 
         public Player()
         {
+            Color = ConsoleColor.Green;
             Console.WriteLine($"Выберите класс:\n 1) Mage: \tMax HP: {mage.MaxHP}\n, \tArmor: {mage.Armor}\n, \tDamage: {mage.Damage}\n2) Warrior: \tMax HP: {warrior.MaxHP}\n, \tArmor: {warrior.Armor}\n, \tDamage: {warrior.Damage}");
             var a = Console.ReadLine();
 
@@ -38,33 +39,17 @@ namespace RoguLikeGame1135.Creatures
             {
                 case "1":
                     Stats.Actions[0].Run(this, room);
+                    Stats.PrintStats(Stats.Actions[0]);
                     break;
                 case "2":
                     Stats.Actions[1].Run(this, room);
+                    Stats.PrintStats(Stats.Actions[1]);
                     break;
                 default:
                     Console.WriteLine("Неверный ввод");
                     break;
             }
 
-        }
-    }
-
-    public class Enemy : Creature
-    {
-        Random rnd = new Random();
-        public Enemy()
-        {
-
-            if (rnd.Next(2) == 0) Stats = new Mage();
-            else Stats = new Warrior();
-            Stats.Name = "Говилка";
-
-        }
-        public override void RunAction(Room room)
-        {
-            if (IsDead) return;
-            else Stats.Actions[rnd.Next(0, Stats.Actions.Count)].Run(this, room);
         }
     }
 }

@@ -12,6 +12,10 @@ namespace RoguLikeGame1135.Creatures
         public int Speed { get; set; }
 
         public List<CreatureAction> Actions { get; set; } = new();
+        public string[] Names { get; set; }
+        public string[] SubClass { get; set; }
+        public string[] Nicks { get; set; }
+
 
         public void PrintActions()
         {
@@ -20,6 +24,12 @@ namespace RoguLikeGame1135.Creatures
             {
                 Console.WriteLine(action.Title);
             }
+        }
+        public void PrintStats(CreatureAction action)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Ваши статы:\nMax HP: {MaxHP}\nCurrent HP: {CurrentHP}\n Armor: {Armor}\n Damage: {Damage}");
+            Console.WriteLine($"Выбранное действие: {action.Title}");
         }
     }
 }
